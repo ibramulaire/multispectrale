@@ -12,6 +12,7 @@ for rows=1:nbl
         bord(rows+1,cols+1) =Image_CFA(rows,cols);
     end
 end
+
 Image_CFA=bord;
 
     i=true;
@@ -62,11 +63,12 @@ Image_CFA=bord;
             end
             i=true;
 
-
-
-
-        end
+      end
+      j=true;
     end
+    R=uint8(R);
+    G=uint8(G);
+    B=uint8(B);
     Output_RGB(:,:,1)=R;
     Output_RGB(:,:,2)=G;
     Output_RGB(:,:,3)=B;

@@ -1,3 +1,4 @@
+pkg load image;
 I=imread('Images/Fleur.tif');
 figure
 subplot(2, 2, 1);

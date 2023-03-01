@@ -1,4 +1,4 @@
-function Output_RGB= methode_interpolationconv(Image_CFA)
+function Output_RGB= methode_interpolationteinteconv(Image_CFA)
   figure
 subplot(2, 3, 1);
 imshow(Image_CFA);
@@ -7,12 +7,17 @@ imshow(Image_CFA);
     MRB=1/4*[1 2 1; 2 4 2;1 2 1];
      
     [IR IG IB]=extractRGB(Image_CFA);
-
-    R=imfilter(IR,MRB,'symmetric','same','conv');
-    G=imfilter(IG,MG,'symmetric','same','conv');
-    B=imfilter(IB,MRB,'symmetric','same','conv');
     
-    R=uint8(R);
+     G=imfilter(IG,MG,'symmetric','same','conv');
+    IR=imdivide(IR,G);
+    IB=imdivide(IB,G);
+    
+    R=imfilter(IR,MRB,'symmetric','same','conv');
+   
+    B=imfilter(IB,MRB,'symmetric','same','conv');
+    R=immultiply(R,G);
+    B=immultiply(B,G);
+     R=uint8(R);
     G=uint8(G);
     B=uint8(B);
     Output_RGB(:,:,1)=R;

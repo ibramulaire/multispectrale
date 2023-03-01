@@ -5,15 +5,15 @@ function Image_CFA = bayer(input_RGB)
 
 
 
-    R = double(input_RGB(:,:,1));
-    G = double(input_RGB(:,:,2));
-    B = double(input_RGB(:,:,3));
+    R = (input_RGB(:,:,1));
+    G = (input_RGB(:,:,2));
+    B = (input_RGB(:,:,3));
     [nbl nbcol]=size(R);
 
   
 
     
-    figure
+figure
 subplot(2, 3, 1);
 imshow(input_RGB);
 subplot(2, 3, 2);
@@ -28,7 +28,7 @@ imshow(B);
     for l=1:nbl
         if(i==true)
 
-            for c=1:nbcol  
+             for c=1:nbcol 
                 if(j==true)
                     Image_CFA(l,c)= R(l,c);
                     j=false;
@@ -58,7 +58,8 @@ imshow(B);
 
 
 
-        end
+      end
+      j=true;
     end
     
    subplot(2, 3, 5);
